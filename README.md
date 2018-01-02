@@ -8,6 +8,10 @@ Currently I'm evaluating this architecture for different datasets e.g. (fashion-
 
 I will publish final results in a few days/weeks.
 
+## Requirements
+- [Keras 2.x](https://keras.io/)
+- [TensorFlow 1.x](https://www.tensorflow.org/)
+
 ## Usage
 Feel free to use this implementation:<br>
 ```
@@ -21,8 +25,8 @@ This will build the following model:<br>
 <img src="./images/model_3-2.png" height="1024px"></kbd>
 
 ## References
-- [Densely Connected Convolutional Networks](https://arxiv.org/abs/1608.06993)
-- [DenseNet - Lua implementation](https://github.com/liuzhuang13/DenseNet)
+[1] [Densely Connected Convolutional Networks](https://arxiv.org/abs/1608.06993)<br>
+[2] [DenseNet - Lua implementation](https://github.com/liuzhuang13/DenseNet)
 
 ## Author
 Christopher Masch
