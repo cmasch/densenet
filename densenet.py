@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-DenseNet model for Keras
+DenseNet implemented in Keras
 
 This implementation is based on the original paper of Gao Huang, Zhuang Liu, Kilian Q. Weinberger and Laurens van der Maaten.
 Besides I took some influences by random implementations, especially of Zhuang Liu's Lua implementation.
