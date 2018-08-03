@@ -12,18 +12,26 @@ Besides I took some influences by random implementations, especially of Zhuang L
 @author: Christopher Masch
 """
 
-from keras import backend as K
 from keras.models import Model
 from keras.layers import Activation, Convolution2D, Dropout, GlobalAveragePooling2D, Concatenate, Dense, Input, AveragePooling2D
 from keras.layers.normalization import BatchNormalization
 from keras.regularizers import l2
 
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 
-def DenseNet(input_shape=None, dense_blocks=3, dense_layers=-1, growth_rate=12, nb_classes=None, dropout_rate=None,
-             bottleneck=False, compression=1.0, weight_decay=1e-4, depth=40):
+def DenseNet(
+    input_shape=None,
+    dense_blocks=3,
+    dense_layers=-1,
+    growth_rate=12,
+    nb_classes=None,
+    dropout_rate=None,
+    bottleneck=False,
+    compression=1.0,
+    weight_decay=1e-4,
+    depth=40):
     """
     Creating a DenseNet
     
@@ -51,15 +59,15 @@ def DenseNet(input_shape=None, dense_blocks=3, dense_layers=-1, growth_rate=12, 
         raise Exception('Please define number of classes (e.g. num_classes=10). This is required for final softmax.')
     
     if compression <=0.0 or compression > 1.0:
-        raise Exception('Compression have to be a value between 0.0 and 1.0. If you set compression to 1.0 it will be turn off.')
+        raise Exception('Compression have to be a value between 0.0 and 1.0.')
     
     if type(dense_layers) is list:
         if len(dense_layers) != dense_blocks:
             raise AssertionError('Number of dense blocks have to be same length to specified layers')
     elif dense_layers == -1:
-        dense_layers = (depth - 4)/3
+        dense_layers = int((depth - 4)/3)
         if bottleneck:
-            dense_layers = dense_layers / 2
+            dense_layers = int(dense_layers / 2)
         dense_layers = [dense_layers for _ in range(dense_blocks)]
     else:
         dense_layers = [dense_layers for _ in range(dense_blocks)]
