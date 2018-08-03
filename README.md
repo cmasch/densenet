@@ -5,14 +5,14 @@ I implemented a DenseNet in Python using Keras and TensorFlow as backend. Becaus
 You can find several implementations on [GitHub](https://github.com/liuzhuang13/DenseNet#other-implementations).
 
 ## Requirements
-- [Keras 2.x](https://keras.io/)
-- [TensorFlow 1.x](https://www.tensorflow.org/)
+- [Keras 2.2.0](https://keras.io/)
+- [TensorFlow 1.9.0](https://www.tensorflow.org/)
+- Python 3.6
 
 ## Usage
 Feel free to use this implementation:<br>
 ```
 import densenet
-print('DenseNet-Version: %s' % densenet.__version__)
 model = densenet.DenseNet(input_shape=(28,28,1), nb_classes=10, depth=10, growth_rate=25,
                           dropout_rate=0.1, bottleneck=False, compression=0.5)
 model.summary()
