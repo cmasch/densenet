@@ -4,9 +4,19 @@ Densely Connected Convolutional Network (DenseNet) is a network architecture whe
 I implemented a DenseNet in Python using Keras and TensorFlow as backend. Because of this I can't guarantee that this implementation is working well with Theano or CNTK. I will try to optimize this architecture in my own way with some modifications.
 You can find several implementations on [GitHub](https://github.com/liuzhuang13/DenseNet#other-implementations).
 
+## Results
+### Fashion-MNIST
+I used this [notebook]( https://github.com/cmasch/zalando-fashion-mnist/blob/master/Simple_Convolutional_Neural_Network_Fashion-MNIST.ipynb) to evaluate the model on fashion-MNIST with following parameters:
+
+| Dense Blocks | Depth | Growth Rate | Dropout | Bottlen. | Compress. | BatchSize /<br>Epochs | Training<br>(loss / acc) | Validation<br>(loss / acc) | Test<br>(loss / acc) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| 3 | 18 | 25 | 0.2 | False | 0.6 | 250 / 80 | 0.1200 / 0.9641 | 0.1823 / 0.9489 | 0.2459 / 0.93748 |
+
+Feel free to try it on your own with another parameters.
+
 ## Requirements
-- [Keras 2.2.0](https://keras.io/)
-- [TensorFlow 1.9.0](https://www.tensorflow.org/)
+- [Keras 2.2.4](https://keras.io/)
+- [TensorFlow 1.10.0](https://www.tensorflow.org/)
 - Python 3.6
 
 ## Usage
