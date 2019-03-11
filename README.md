@@ -1,7 +1,7 @@
 # DenseNet
 Densely Connected Convolutional Network (DenseNet) is a network architecture where each layer is directly connected to every other layer in a feed-forward fashion. It's quite similar to ResNet but in contrast DenseNet concatenates outputs instead of using summation. If you need a quick introduction about how DenseNet works, please read the [original paper](https://arxiv.org/abs/1608.06993)[1]. It's well written and easy to understand.
 
-I implemented a DenseNet in Python using Keras and TensorFlow as backend. Because of this I can't guarantee that this implementation is working well with Theano or CNTK. I will try to optimize this architecture in my own way with some modifications.
+I implemented a DenseNet in Python using Keras and TensorFlow as backend. Because of this I can't guarantee that this implementation is working well with Theano or CNTK. In the next months I will update the code to TensorFlow 2.x. Besides I will try to optimize this architecture in my own way with some modifications.
 You can find several implementations on [GitHub](https://github.com/liuzhuang13/DenseNet#other-implementations).
 
 ## Results
@@ -10,7 +10,7 @@ I used this [notebook]( https://github.com/cmasch/zalando-fashion-mnist/blob/mas
 
 | Dense Blocks | Depth | Growth Rate | Dropout | Bottlen. | Compress. | BatchSize /<br>Epochs | Training<br>(loss / acc) | Validation<br>(loss / acc) | Test<br>(loss / acc) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 3 | 18 | 25 | 0.2 | False | 0.6 | 250 / 80 | 0.1200 / 0.9641 | 0.1823 / 0.9489 | 0.2459 / 0.93748 |
+| 6 | 23 | 35 | 0.35 | False | 0.1 | 400 / 80 | 0.1149 / 0.9619 | 0.1544 / 0.9558 | 0.2339 / 0.9410 |
 
 Feel free to try it on your own with another parameters.
 
