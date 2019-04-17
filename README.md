@@ -10,7 +10,7 @@ I used this [notebook]( https://github.com/cmasch/zalando-fashion-mnist/blob/mas
 
 | Dense Blocks | Depth | Growth Rate | Dropout | Bottlen. | Compress. | BatchSize /<br>Epochs | Training<br>(loss / acc) | Validation<br>(loss / acc) | Test<br>(loss / acc) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 6 | 23 | 35 | 0.35 | False | 0.1 | 400 / 80 | 0.1149 / 0.9619 | 0.1544 / 0.9558 | 0.2339 / 0.9410 |
+| 5 | 35 | 20 | 0.4 | False | 0.9 | 100 / 80 | 0.1366 / 0.9681 | 0.1675 / 0.9643 | 0.2739 / 0.9459 |
 
 Feel free to try it on your own with another parameters.
 
