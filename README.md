@@ -24,7 +24,7 @@ Feel free to use this implementation:<br>
 ```
 import densenet
 model = densenet.DenseNet(input_shape=(28,28,1), nb_classes=10, depth=10, growth_rate=25,
-                          dropout_rate=0.1, bottleneck=False, compression=0.5)
+                          dropout_rate=0.1, bottleneck=False, compression=0.5).build_model()
 model.summary()
 ```
 This will build the following model:<br>

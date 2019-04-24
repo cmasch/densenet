@@ -15,9 +15,9 @@ Besides I took some influences by random implementations, especially of Zhuang L
 import keras
 from keras import layers
 
+__version__ = '0.0.3'
 
 class DenseNet:
-    __version__ = '0.0.3'
 
     def __init__(self, input_shape=None, dense_blocks=3, dense_layers=-1, growth_rate=12, nb_classes=None,
                  dropout_rate=None, bottleneck=False, compression=1.0, weight_decay=1e-4, depth=40):
@@ -42,7 +42,7 @@ class DenseNet:
         # Checks
         if nb_classes == None:
             raise Exception(
-                'Please define number of classes (e.g. num_classes=10). This is required for final softmax.')
+                'Please define number of classes (e.g. nb_classes=10). This is required for final softmax.')
 
         if compression <= 0.0 or compression > 1.0:
             raise Exception('Compression have to be a value between 0.0 and 1.0.')
