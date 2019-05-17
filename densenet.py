@@ -76,7 +76,7 @@ class DenseNet:
             Model : Keras model instance
         """
 
-        print('Creating DenseNet %s' % self.__version__)
+        print('Creating DenseNet')
         print('#############################################')
         print('Dense blocks: %s' % self.dense_blocks)
         print('Layers per dense block: %s' % self.dense_layers)
