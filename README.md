@@ -15,9 +15,8 @@ I used this [notebook]( https://github.com/cmasch/zalando-fashion-mnist/blob/mas
 Feel free to try it on your own with another parameters.
 
 ## Requirements
-- [Keras 2.2.4](https://keras.io/)
-- [TensorFlow 1.10.0](https://www.tensorflow.org/)
-- Python 3.6
+- TensorFlow 2.x
+- Python 3.x
 
 ## Usage
 Feel free to use this implementation:<br>

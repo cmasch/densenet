@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-DenseNet implemented in Keras
+DenseNet implemented in TensorFlow 2
 
 This implementation is based on the original paper of Gao Huang, Zhuang Liu, Kilian Q. Weinberger and Laurens van der Maaten.
 Besides I took some influences by random implementations, especially of Zhuang Liu's Lua implementation.
@@ -12,10 +12,10 @@ Besides I took some influences by random implementations, especially of Zhuang L
 @author: Christopher Masch
 """
 
-import keras
-from keras import layers
+import tensorflow as tf
+from tensorflow.keras import layers
 
-__version__ = '0.0.3'
+__version__ = '0.1.0'
 
 class DenseNet:
 
@@ -41,8 +41,7 @@ class DenseNet:
 
         # Checks
         if nb_classes == None:
-            raise Exception(
-                'Please define number of classes (e.g. nb_classes=10). This is required for final softmax.')
+            raise Exception('Please define number of classes (e.g. nb_classes=10). This is required for final softmax.')
 
         if compression <= 0.0 or compression > 1.0:
             raise Exception('Compression have to be a value between 0.0 and 1.0.')
@@ -50,6 +49,7 @@ class DenseNet:
         if type(dense_layers) is list:
             if len(dense_layers) != dense_blocks:
                 raise AssertionError('Number of dense blocks have to be same length to specified layers')
+                
         elif dense_layers == -1:
             dense_layers = int((depth - 4) / 3)
             if bottleneck:
@@ -87,7 +87,7 @@ class DenseNet:
 
         # Initial convolution layer
         x = layers.Convolution2D(2 * self.growth_rate, (3, 3), padding='same', strides=(1, 1),
-                                 kernel_regularizer=keras.regularizers.l2(self.weight_decay))(img_input)
+                                 kernel_regularizer=tf.keras.regularizers.l2(self.weight_decay))(img_input)
 
         # Building dense blocks
         for block in range(self.dense_blocks - 1):
@@ -107,7 +107,7 @@ class DenseNet:
         x = layers.GlobalAveragePooling2D()(x)
         prediction = layers.Dense(self.nb_classes, activation='softmax')(x)
 
-        return keras.Model(inputs=img_input, outputs=prediction, name='densenet')
+        return tf.keras.Model(inputs=img_input, outputs=prediction, name='densenet')
 
     def dense_block(self, x, nb_layers, nb_channels, growth_rate, dropout_rate=None, bottleneck=False,
                     weight_decay=1e-4):
@@ -133,7 +133,7 @@ class DenseNet:
             x = layers.BatchNormalization()(x)
             x = layers.Activation('relu')(x)
             x = layers.Convolution2D(nb_channels * bottleneckWidth, (1, 1),
-                                     kernel_regularizer=keras.regularizers.l2(weight_decay))(x)
+                                     kernel_regularizer=tf.keras.regularizers.l2(weight_decay))(x)
             # Dropout
             if dropout_rate:
                 x = layers.Dropout(dropout_rate)(x)
@@ -158,7 +158,7 @@ class DenseNet:
         x = layers.BatchNormalization()(x)
         x = layers.Activation('relu')(x)
         x = layers.Convolution2D(int(nb_channels * compression), (1, 1), padding='same',
-                                 kernel_regularizer=keras.regularizers.l2(weight_decay))(x)
+                                 kernel_regularizer=tf.keras.regularizers.l2(weight_decay))(x)
 
         # Adding dropout
         if dropout_rate:
